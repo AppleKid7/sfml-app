@@ -11,7 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game.h" />
+    <ClInclude Include="gamestate.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{52C4D32F-0F4F-44CF-9C71-78F6A6AE8D9F}</ProjectGuid>
