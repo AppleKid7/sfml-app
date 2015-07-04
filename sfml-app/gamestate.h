@@ -1,5 +1,5 @@
-#ifndef GAME_STATE_HPP
-#define GAME_STATE_HPP
+#ifndef GAMESTATE_H
+#define GAMESTATE_H
 
 #include "game.h"
 
@@ -14,4 +14,4 @@ public:
 	virtual void handleInput() = 0;
 };
 
-#endif /* GAME_STATE_HPP */
+#endif /* GAME_STATE_H */

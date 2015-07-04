@@ -1,6 +1,8 @@
 #include <SFML\Graphics.hpp>
 #include <Box2D\Box2D.h>
 
+#include "game.h"
+
 /** We need this to easily convert between pixel and real-world coordinates*/
 static const float SCALE = 30.f;
 
@@ -12,57 +14,63 @@ void CreateBox(b2World& World, int MouseX, int MouseY);
 
 int main()
 {
-	/** Prepare the window */
-	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Test");
-	window.setFramerateLimit(60);
+	///** Prepare the window */
+	//sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Test");
+	//window.setFramerateLimit(60);
 
-	/** Prepare the world */
-	b2Vec2 gravity(0.f, 9.8f);
-	b2World world(gravity);
-	CreateGround(world, 400.f, 500.f);
+	///** Prepare the world */
+	//b2Vec2 gravity(0.f, 9.8f);
+	//b2World world(gravity);
+	//CreateGround(world, 400.f, 500.f);
 
-	/** Prepare textures */
-	sf::Texture groundTexture;
-	sf::Texture boxTexture;
-	groundTexture.loadFromFile("media/images/ground.png");
-	boxTexture.loadFromFile("media/images/box.png");
+	///** Prepare textures */
+	//sf::Texture groundTexture;
+	//sf::Texture boxTexture;
+	//groundTexture.loadFromFile("media/images/ground.png");
+	//boxTexture.loadFromFile("media/images/box.png");
 
-	while (window.isOpen())
-	{
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-		{
-			int mouseX = sf::Mouse::getPosition(window).x;
-			int mouseY = sf::Mouse::getPosition(window).y;
-			CreateBox(world, mouseX, mouseY);
-		}
-		world.Step(1 / 60.f, 8, 3);
+	//while (window.isOpen())
+	//{
+	//	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	//	{
+	//		int mouseX = sf::Mouse::getPosition(window).x;
+	//		int mouseY = sf::Mouse::getPosition(window).y;
+	//		CreateBox(world, mouseX, mouseY);
+	//	}
+	//	world.Step(1 / 60.f, 8, 3);
 
-		window.clear(sf::Color::White);
-		int bodyCount = 0;
-		for (b2Body* bodyIterator = world.GetBodyList(); bodyIterator != 0; bodyIterator = bodyIterator->GetNext())
-		{
-			if (bodyIterator->GetType() == b2_dynamicBody)
-			{
-				sf::Sprite sprite;
-				sprite.setTexture(boxTexture);
-				sprite.setOrigin(16.f, 16.f);
-				sprite.setPosition(SCALE * bodyIterator->GetPosition().x, SCALE * bodyIterator->GetPosition().y);
-				sprite.setRotation(bodyIterator->GetAngle() * 180 / b2_pi);
-				window.draw(sprite);
-				++bodyCount;
-			}
-			else
-			{
-				sf::Sprite groundSprite;
-				groundSprite.setTexture(groundTexture);
-				groundSprite.setOrigin(400.f, 8.f);
-				groundSprite.setPosition(bodyIterator->GetPosition().x * SCALE, bodyIterator->GetPosition().y * SCALE);
-				groundSprite.setRotation(180 / b2_pi * bodyIterator->GetAngle());
-				window.draw(groundSprite);
-			}
-		}
-		window.display();
-	}
+	//	window.clear(sf::Color::White);
+	//	int bodyCount = 0;
+	//	for (b2Body* bodyIterator = world.GetBodyList(); bodyIterator != 0; bodyIterator = bodyIterator->GetNext())
+	//	{
+	//		if (bodyIterator->GetType() == b2_dynamicBody)
+	//		{
+	//			sf::Sprite sprite;
+	//			sprite.setTexture(boxTexture);
+	//			sprite.setOrigin(16.f, 16.f);
+	//			sprite.setPosition(SCALE * bodyIterator->GetPosition().x, SCALE * bodyIterator->GetPosition().y);
+	//			sprite.setRotation(bodyIterator->GetAngle() * 180 / b2_pi);
+	//			window.draw(sprite);
+	//			++bodyCount;
+	//		}
+	//		else
+	//		{
+	//			sf::Sprite groundSprite;
+	//			groundSprite.setTexture(groundTexture);
+	//			groundSprite.setOrigin(400.f, 8.f);
+	//			groundSprite.setPosition(bodyIterator->GetPosition().x * SCALE, bodyIterator->GetPosition().y * SCALE);
+	//			groundSprite.setRotation(180 / b2_pi * bodyIterator->GetAngle());
+	//			window.draw(groundSprite);
+	//		}
+	//	}
+	//	window.display();
+	//}
+
+	Game game;
+
+	game.gameLoop();
+
+	return 0;
 
 	return 0;
 }

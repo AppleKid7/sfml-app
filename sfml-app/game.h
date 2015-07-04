@@ -1,3 +1,6 @@
+#ifndef GAME_H
+#define GAME_H
+
 #include <stack>
 #include <SFML/Graphics.hpp>
 
@@ -22,4 +25,4 @@ public:
 	~Game();
 };
 
-#endif /* GAME_HPP */
+#endif /* GAME_H */
