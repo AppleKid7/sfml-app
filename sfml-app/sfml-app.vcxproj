@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="animationhandler.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gamestateeditor.cpp" />
     <ClCompile Include="gamestatestart.cpp" />
@@ -18,6 +19,7 @@
     <ClCompile Include="texturemanager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="animationhandler.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gamestate.h" />
     <ClInclude Include="gamestateeditor.h" />
