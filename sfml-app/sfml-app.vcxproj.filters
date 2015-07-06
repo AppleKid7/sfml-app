@@ -30,6 +30,9 @@
     <ClCompile Include="gamestateeditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="animationhandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gamestate.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="texturemanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animationhandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
