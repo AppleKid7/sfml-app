@@ -2,6 +2,7 @@
 #include <Box2D\Box2D.h>
 
 #include "game.h"
+#include "gamestatestart.h"
 
 /** We need this to easily convert between pixel and real-world coordinates*/
 static const float SCALE = 30.f;
@@ -68,6 +69,7 @@ int main()
 
 	Game game;
 
+	game.pushState(new GameStateStart(&game));
 	game.gameLoop();
 
 	return 0;
