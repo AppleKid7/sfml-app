@@ -47,10 +47,30 @@ void GameStateStart::handleInput()
 				this->game->window.close();
 				break;
 			}
+			else if (event.key.code == sf::Keyboard::Space)
+			{
+				this->loadgame();
+			}
 		}
 		default:
 			break;
 		}
 	}
+	return;
+}
+
+GameStateStart::GameStateStart(Game *game)
+{
+	this->game = game;
+	sf::Vector2f pos = sf::Vector2f(this->game->window.getSize());
+	this->view.setSize(pos);
+	pos *= 0.5f;
+	this->view.setCenter(pos);
+}
+
+void GameStateStart::loadgame()
+{
+	this->game->pushState(new GameStateEditor(this->game));
+
 	return;
 }
