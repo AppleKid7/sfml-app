@@ -14,4 +14,4 @@ public:
 	virtual void handleInput() = 0;
 };
 
-#endif /* GAME_STATE_H */
+#endif /* GAMESTATE_H */
